@@ -1,0 +1,44 @@
+<div>
+  <label> Student Number </label> <input type = "text"[(ngModel)] = "studNo"><br>
+  <label> Student First Name </label> <input type = "text"[(ngModel)] = "studFrstName"><br>
+  <label> Student Last Name </label> <input type = "text"[(ngModel)] = "studLstName"><br>
+  <label> Student Program </label> <input type = "text"[(ngModel)] = "studProg"><br>
+  <label> Student School Year </label> <input type = "text"[(ngModel)] = "studYr"><br>
+</div>
+
+<div id = "options">
+  <button id = "addStudents" (click) = "addStudentEntry()">
+    Add Student Entry 
+  </button>
+
+  <button id = "listStudents" (click) = "listStudentsEntry()">
+    List Students
+  </button>
+</div>
+
+<div>
+  {{messages}}
+</div>
+
+<div *ngif = "printing">
+  <table>
+    <thead>
+      <tr>
+      <th>Student Number</th>
+      <th>Student First Name</th>
+      <th>Student Last Name</th>
+      <th>Student Program</th>
+      <th>Student Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let studentRecord of studentCollection">
+        <td> {{studentRecord.studNumber}}</td>
+        <td> {{studentRecord.studFrstName}}</td>
+        <td> {{studentRecord.studLstName}}</td>
+        <td> {{studentRecord.studProg}}</td>
+        <td> {{studentRecord.studYr}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
